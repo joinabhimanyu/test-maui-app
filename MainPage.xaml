@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="test_maui_app.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:test_maui_app.ViewModels"
+    x:DataType="viewModels:MainPageViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="productTemplate" x:DataType="viewModels:Product">
+                <Grid
+                    ColumnDefinitions="*, 3*"
+                    RowDefinitions="*, *">
+                    <Image
+                        Grid.RowSpan="2"
+                        Source="{Binding thumbnail}"
+                        Aspect="AspectFill"
+                        HeightRequest="50"
+                        WidthRequest="60"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0, 20"
+                        Text="{Binding title}"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding description}"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="0,0"
+                             Spacing="25">
+
+            <CollectionView
+                ItemsSource="{Binding Products}"
+                ItemTemplate="{StaticResource productTemplate}"/>
+            
+
+            <!-- <Image
+                Aspect="AspectFit"
+                HeightRequest="185"
+                SemanticProperties.Description="dot net bot in a race car number eight"
+                Source="dotnet_bot.png"/>
+
+            <Editor Placeholder="enter first no"
+                    Margin="10"/>
+            <Editor Placeholder="enter second no"
+                    Margin="10"/>
+
+            <Button
+                x:Name="AddBtn"
+                Command="{Binding IncrementCounter}"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Add values"
+                Text="Add"/>
+
+            <Label
+                SemanticProperties.HeadingLevel="Level1"
+                Style="{StaticResource Headline}"
+                Text="{Binding Counter}"/>
+
+            <Button
+                x:Name="IncrementBtn"
+                Command="{Binding IncrementCounter}"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Increment Counter"
+                Text="Increment"/>
+
+            <Button
+                x:Name="DecrementBtn"
+                Command="{Binding DecrementCounter}"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Decrement Counter"
+                Text="Decrement"/> -->
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
