@@ -6,6 +6,19 @@ namespace test_maui_app.ViewModels;
 
 public abstract class BaseViewModel : INotifyPropertyChanged
 {
+    private bool _isLoading = false;
+    private bool _isError = false;
+    public bool IsLoading
+    {
+        get => _isLoading;
+        set => SetProperty(ref _isLoading, value);
+    }
+
+    public bool IsError
+    {
+        get => _isError;
+        set => SetProperty(ref _isError, value);
+    }
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

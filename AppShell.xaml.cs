@@ -5,6 +5,8 @@
         public AppShell()
         {
             InitializeComponent();
+            // register routes
+            Routing.RegisterRoute(nameof(ProductDetails), typeof(ProductDetails));
         }
     }
 }

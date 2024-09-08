@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="test_maui_app.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:test_maui_app.ViewModels"
+    xmlns:models="clr-namespace:test_maui_app.Models"
+    xmlns:converters="clr-namespace:test_maui_app.Converters"
+    x:DataType="viewModels:MainPageViewModel"
+    Title="Products">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Shadow x:Key="GridShadow"
+                    Brush="{StaticResource Gray100}"
+                    Offset="1,1"
+                    Radius="0"
+                    Opacity="0.8"/>
+            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+            <DataTemplate x:Key="productTemplate"
+                          x:DataType="models:Product">
+                <Grid
+                    ColumnDefinitions="*, 3*"
+                    RowDefinitions="*, *">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"/>
+                                <VisualState Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="Shadow" Value="{StaticResource GridShadow}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor"
+                                                Value="{StaticResource Secondary}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+
+                    <Image
+                        Grid.RowSpan="2"
+                        Source="{Binding thumbnail}"
+                        Aspect="AspectFill"
+                        HeightRequest="50"
+                        WidthRequest="60"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0, 20"
+                        Text="{Binding title}"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding description}"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Cart">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlinedLatinRegular"
+                    Glyph="&#xe8cc;"
+                    Color="White"
+                    Size="20"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="60, *"
+          ColumnDefinitions="*">
+
+        <Grid HorizontalOptions="Fill"
+              Padding="30,0,5,0"
+              ColumnDefinitions="*, 100">
+
+            <Entry
+                x:Name="txtSearch"
+                HorizontalOptions="End"
+                WidthRequest="210"
+                Placeholder="Search Products"
+                HeightRequest="50"/>
+
+            <Button x:Name="searchBtn"
+                    Margin="10"
+                    CornerRadius="30"
+                    Grid.Column="1"
+                    Text="Search"
+                    SemanticProperties.Hint="Search Products"
+                    Pressed="searchBtn_Pressed"/>
+        </Grid>
+
+        <VerticalStackLayout IsVisible="{Binding IsLoading}"
+                             Grid.Row="1"
+                             VerticalOptions="Center">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <ActivityIndicator VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   IsRunning="{Binding IsLoading}"
+                                   IsVisible="{Binding IsLoading}"
+                                   Color="Teal"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <ScrollView IsVisible="{Binding IsLoading,Converter={StaticResource InverseBooleanConverter}}"
+                    Grid.Row="1">
+            <VerticalStackLayout Padding="0,0"
+                                 Spacing="10">
+
+                <!-- <RefreshView IsVisible="Visible" IsRefreshing="{Binding IsLoading}" RefreshColor="Teal"
+                    Command="{Binding LoadProducts}">
+                
+            </RefreshView> -->
+
+                <CollectionView
+                    SelectionMode="Single"
+                    VerticalOptions="FillAndExpand"
+                    ItemsSource="{Binding Products}"
+                    ItemTemplate="{StaticResource productTemplate}"
+                    SelectionChanged="CollectionView_SelectionChanged"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

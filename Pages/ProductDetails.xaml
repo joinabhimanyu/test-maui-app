@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_maui_app.ProductDetails"
+             xmlns:viewModels="using:test_maui_app.ViewModels"
+             xmlns:models="using:test_maui_app.Models"
+             xmlns:converters="using:test_maui_app.Converters"
+             x:DataType="viewModels:ProductDetailsViewModel"
+             Title="ProductDetails">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InformationSubstringConverter x:Key="informationSubstringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Cart">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlinedLatinRegular"
+                    Glyph="&#xe8cc;"
+                    Color="White"
+                    Size="20"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <Grid
+            ColumnDefinitions="*, *"
+            RowDefinitions="200, 40, 40, *"
+            Padding="20,10,20,0"
+            BindingContext="{Binding Product}"
+            VerticalOptions="FillAndExpand"
+            x:DataType="models:Product">
+
+            <Image
+                HorizontalOptions="Center"
+                Grid.ColumnSpan="2"
+                Source="{Binding thumbnail}"
+                Aspect="AspectFill"
+                HeightRequest="200"
+                WidthRequest="200"/>
+
+            <VerticalStackLayout HeightRequest="20"
+                                 Grid.ColumnSpan="2"
+                                 Grid.Row="1">
+                <HorizontalStackLayout HeightRequest="20"
+                                       WidthRequest="100"
+                                       HorizontalOptions="End">
+                    <ImageButton x:Name="btnFavourite">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                FontFamily="MaterialIconsRoundLatinRegular"
+                                Glyph="&#xe87d;"
+                                Color="{StaticResource OffBlack}"
+                                Size="10"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <ImageButton x:Name="btnShare">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                FontFamily="MaterialIconsRoundLatinRegular"
+                                Glyph="&#xe80d;"
+                                Color="{StaticResource OffBlack}"
+                                Size="10"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout HeightRequest="40"
+                                 Grid.ColumnSpan="2"
+                                 Grid.Row="2">
+                <HorizontalStackLayout HeightRequest="40"
+                                       WidthRequest="200"
+                                       HorizontalOptions="Center">
+                    <Button
+                        x:Name="btnPurchase"
+                        Text="Add to Cart"
+                        HeightRequest="40"
+                        WidthRequest="200"
+                        CornerRadius="30"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="3"
+                                 Margin="30,20,0,20">
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Title"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Description"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Category"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Price"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Discount"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Rating"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Stock"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Brand"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="SKU"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Weight"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Warranty Information"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Shipping Information"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Availability Status"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    FontAttributes="Bold"
+                    Text="Minimum Order Quantity"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1"
+                                 Grid.Row="3"
+                                 Margin="30,20,0,20">
+                <Label
+                    Margin="0,5"
+                    Text="{Binding title,Converter={StaticResource informationSubstringConverter}}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding description,Converter={StaticResource informationSubstringConverter}}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding category}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding price}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding discountPercentage}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding rating}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding stock}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding brand}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding sku}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding weight}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding warrantyInformation}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding shippingInformation}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding availabilityStatus}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Margin="0,5"
+                    Text="{Binding minimumOrderQuantity}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"/>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

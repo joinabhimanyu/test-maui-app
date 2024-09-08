@@ -1,6 +1,6 @@
 using System;
 
-namespace test_maui_app.ViewModels;
+namespace test_maui_app.Models;
 
 public class Dimension
 {
