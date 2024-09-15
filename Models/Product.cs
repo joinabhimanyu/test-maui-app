@@ -4,55 +4,55 @@ namespace test_maui_app.Models;
 
 public class Dimension
 {
-    public decimal width { get; set; }
-    public decimal height { get; set; }
-    public decimal depth { get; set; }
+    public decimal Width { get; set; }
+    public decimal Height { get; set; }
+    public decimal Depth { get; set; }
 }
 public class Review
 {
-    public int rating { get; set; }
-    public string? comment { get; set; }
-    public DateTime? date { get; set; }
-    public string? reviewerName { get; set; }
-    public string? reviewerEmail { get; set; }
+    public int Rating { get; set; }
+    public string? Comment { get; set; }
+    public DateTime? Date { get; set; }
+    public string? ReviewerName { get; set; }
+    public string? ReviewerEmail { get; set; }
 }
 public class Meta
 {
-    public DateTime? createdAt { get; set; }
-    public DateTime? updatedAt { get; set; }
-    public string? barcode { get; set; }
-    public string? qrCode { get; set; }
+    public DateTime? CreatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+    public string? Barcode { get; set; }
+    public string? QrCode { get; set; }
 }
 public class Product
 {
-    public int id { get; set; }
-    public string? title { get; set; }
-    public string? description { get; set; }
-    public string? category { get; set;}
-    public decimal price { get; set; }
-    public decimal discountPercentage { get; set; }
-    public decimal rating { get; set; }
-    public decimal stock { get; set; }
-    public IList<string>? tags { get; set; }
-    public string? brand { get; set; }
-    public string? sku { get; set; }
-    public decimal weight { get; set; }
-    public Dimension? dimensions { get; set; }
-    public string? warrantyInformation { get; set; }
-    public string? shippingInformation { get; set; }
-    public string? availabilityStatus { get; set; }
-    public IList<Review>? reviews { get; set; }
-    public string? returnPolicy { get; set; }
-    public decimal minimumOrderQuantity { get; set; }
-    public Meta? meta { get; set; }
-    public string? thumbnail { get; set; }
-    public IList<string>? images { get; set; }
+    public int Id { get; set; }
+    public string? Title { get; set; }
+    public string? Description { get; set; }
+    public string? Category { get; set;}
+    public decimal Price { get; set; }
+    public decimal DiscountPercentage { get; set; }
+    public decimal Rating { get; set; }
+    public decimal Stock { get; set; }
+    public IList<string>? Tags { get; set; }
+    public string? Brand { get; set; }
+    public string? Sku { get; set; }
+    public decimal Weight { get; set; }
+    public Dimension? Dimensions { get; set; }
+    public string? WarrantyInformation { get; set; }
+    public string? ShippingInformation { get; set; }
+    public string? AvailabilityStatus { get; set; }
+    public IList<Review>? Reviews { get; set; }
+    public string? ReturnPolicy { get; set; }
+    public decimal MinimumOrderQuantity { get; set; }
+    public Meta? Meta { get; set; }
+    public string? Thumbnail { get; set; }
+    public IList<string>? Images { get; set; }
 }
 
 public class ProductResponse
 {
-    public ICollection<Product>? products { get; set; }
-    public int total { get; set; }
-    public int skip { get; set; }
-    public int limit { get; set; }
+    public ICollection<Product>? Products { get; set; }
+    public int Total { get; set; }
+    public int Skip { get; set; }
+    public int Limit { get; set; }
 }

@@ -18,9 +18,9 @@ public static class MainPageApi
             {
                 // var result = await response.Content.ReadAsStringAsync();
                 var result = await response.Content.ReadFromJsonAsync<ProductResponse>();
-                if (result != null && result!.products != null)
+                if (result != null && result!.Products != null)
                 {
-                    return new ObservableCollection<Product>(result.products!);
+                    return new ObservableCollection<Product>(result.Products!);
                 }
             }
         }
@@ -51,9 +51,9 @@ public static class MainPageApi
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadFromJsonAsync<ProductResponse>();
-                if (result != null && result!.products != null)
+                if (result != null && result!.Products != null)
                 {
-                    return new ObservableCollection<Product>(result.products!);
+                    return new ObservableCollection<Product>(result.Products!);
                 }
             }
         }

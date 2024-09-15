@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="test_maui_app.ProductDetails"
+             x:Class="test_maui_app.Pages.ProductDetails"
              xmlns:viewModels="using:test_maui_app.ViewModels"
              xmlns:models="using:test_maui_app.Models"
              xmlns:converters="using:test_maui_app.Converters"
+             xmlns:views="clr-namespace:test_maui_app.Views"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:DataType="viewModels:ProductDetailsViewModel"
              Title="ProductDetails">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converters:InformationSubstringConverter x:Key="informationSubstringConverter"/>
+            <converters:InformationSubstringConverter x:Key="InformationSubstringConverter"/>
+            
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Cart">
-            <ToolbarItem.IconImageSource>
-                <FontImageSource
-                    FontFamily="MaterialIconsOutlinedLatinRegular"
-                    Glyph="&#xe8cc;"
-                    Color="White"
-                    Size="20"/>
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
-
-    </ContentPage.ToolbarItems>
 
     <ScrollView>
         <Grid
@@ -39,7 +29,7 @@
             <Image
                 HorizontalOptions="Center"
                 Grid.ColumnSpan="2"
-                Source="{Binding thumbnail}"
+                Source="{Binding Thumbnail}"
                 Aspect="AspectFill"
                 HeightRequest="200"
                 WidthRequest="200"/>
@@ -50,7 +40,7 @@
                 <HorizontalStackLayout HeightRequest="20"
                                        WidthRequest="100"
                                        HorizontalOptions="End">
-                    <ImageButton x:Name="btnFavourite">
+                    <ImageButton x:Name="BtnFavourite">
                         <ImageButton.Source>
                             <FontImageSource
                                 FontFamily="MaterialIconsRoundLatinRegular"
@@ -59,7 +49,7 @@
                                 Size="10"/>
                         </ImageButton.Source>
                     </ImageButton>
-                    <ImageButton x:Name="btnShare">
+                    <ImageButton x:Name="BtnShare">
                         <ImageButton.Source>
                             <FontImageSource
                                 FontFamily="MaterialIconsRoundLatinRegular"
@@ -78,11 +68,18 @@
                                        WidthRequest="200"
                                        HorizontalOptions="Center">
                     <Button
-                        x:Name="btnPurchase"
+                        x:Name="BtnPurchase"
                         Text="Add to Cart"
                         HeightRequest="40"
                         WidthRequest="200"
-                        CornerRadius="30"/>
+                        CornerRadius="30"
+                        BindingContext="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                        x:DataType="viewModels:ProductDetailsViewModel"
+                        Clicked="btnPurchase_Clicked">
+                        <Button.IsEnabled>
+                            <Binding Path="IsEnabled" Mode="OneWay" />
+                        </Button.IsEnabled>
+                    </Button>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 
@@ -179,72 +176,72 @@
                                  Margin="30,20,0,20">
                 <Label
                     Margin="0,5"
-                    Text="{Binding title,Converter={StaticResource informationSubstringConverter}}"
+                    Text="{Binding Title,Converter={StaticResource InformationSubstringConverter}}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding description,Converter={StaticResource informationSubstringConverter}}"
+                    Text="{Binding Description,Converter={StaticResource InformationSubstringConverter}}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding category}"
+                    Text="{Binding Category}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding price}"
+                    Text="{Binding Price}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding discountPercentage}"
+                    Text="{Binding DiscountPercentage}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding rating}"
+                    Text="{Binding Rating}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding stock}"
+                    Text="{Binding Stock}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding brand}"
+                    Text="{Binding Brand}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding sku}"
+                    Text="{Binding Sku}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding weight}"
+                    Text="{Binding Weight}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding warrantyInformation}"
+                    Text="{Binding WarrantyInformation}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding shippingInformation}"
+                    Text="{Binding ShippingInformation}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding availabilityStatus}"
+                    Text="{Binding AvailabilityStatus}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
                 <Label
                     Margin="0,5"
-                    Text="{Binding minimumOrderQuantity}"
+                    Text="{Binding MinimumOrderQuantity}"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"/>
             </VerticalStackLayout>

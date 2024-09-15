@@ -1,10 +1,10 @@
 using test_maui_app.ViewModels;
 
-namespace test_maui_app;
+namespace test_maui_app.Pages;
 
 public partial class ProductDetails : ContentPage
 {
-	private ProductDetailsViewModel _viewModel;
+	private readonly ProductDetailsViewModel _viewModel;
 	public ProductDetails()
 	{
 		_viewModel = new ProductDetailsViewModel();
@@ -12,9 +12,11 @@ public partial class ProductDetails : ContentPage
 		InitializeComponent();
 	}
 
-    // protected override void OnAppearing()
-    // {
-    //     base.OnAppearing();
-	// 	_viewModel.LoadProductDetailsAsync.Execute(null);
-    // }
+    private void btnPurchase_Clicked(object sender, EventArgs e)
+    {
+		if (Shell.Current is AppShell appShell)
+		{
+			appShell.AddItemToCart(_viewModel.Product.Id);
+		}
+    }
 }

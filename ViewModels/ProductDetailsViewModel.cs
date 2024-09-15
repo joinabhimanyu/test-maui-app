@@ -9,53 +9,62 @@ public class ProductDetailsViewModel : BaseViewModel
 {
     private int _productId;
     private Product? _product;
-    public Command LoadProductDetailsAsync { get; }
+    private Command LoadProductDetailsAsync { get; }
 
     public int ProductId
     {
         get => _productId;
         set
         {
-            if (_productId != value)
-            {
-                SetProperty(ref _productId, value);
-                LoadProductDetailsAsync.Execute(null);
-            }
+            if (_productId == value) return;
+            SetProperty(ref _productId, value);
+            LoadProductDetailsAsync.Execute(null);
         }
     }
     public Product Product
     {
         get => _product!;
-        set => SetProperty(ref _product, value);
+        private set => SetProperty(ref _product, value);
     }
+
+    public bool IsEnabled
+    {
+        get
+        {
+            return Shell.Current is AppShell && ((Shell.Current as AppShell)!).CartItem.ViewModel.Items.All(x => x != _productId);
+        }
+    }
+
     public ProductDetailsViewModel()
     {
-        LoadProductDetailsAsync = new Command(async () =>
+        LoadProductDetailsAsync = new Command(ExecuteLoadProductDetailsAsync);
+    }
+
+    private async void ExecuteLoadProductDetailsAsync()
+    {
+        IsLoading = true;
+        IsError = false;
+        try
         {
-            IsLoading = true;
-            IsError = false;
-            try
+            // var productId = (int)value;
+            var product = await MainPageApi.GetProductByIdAsync(ProductId);
+            if (product is not null)
             {
-                // var productId = (int)value;
-                var product = await MainPageApi.GetProductByIdAsync(ProductId);
-                if (product is not null)
-                {
-                    Product=product;
-                }
-                else
-                {
-                    IsError = true;
-                }
+                Product = product;
             }
-            catch (System.Exception)
+            else
             {
                 IsError = true;
-                throw;
             }
-            finally
-            {
-                IsLoading = false;
-            }
-        });
+        }
+        catch (System.Exception)
+        {
+            IsError = true;
+            throw;
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 }

@@ -9,18 +9,26 @@ public class MainPageViewModel : BaseViewModel
 {
     public Command LoadProductsAsync { get; }
     public Command SearchProductsAsync { get; }
-    private ObservableCollection<Product> _products = new ObservableCollection<Product>();
+    
+    private ObservableCollection<Product> _products = [];
 
     public MainPageViewModel()
     {
-        LoadProductsAsync = new Command(async () =>
+        LoadProductsAsync = new Command(ExecuteLoadProductsAsync);
+        SearchProductsAsync = new Command(ExecuteSearchProductsAsync);
+    }
+
+    private async void ExecuteSearchProductsAsync(object value)
+    {
+        var searchText = value as string;
+        if (!string.IsNullOrWhiteSpace(searchText))
         {
             IsLoading = true;
             IsError = false;
             Products.Clear();
             try
             {
-                Products = await MainPageApi.GetProducts() ?? new ObservableCollection<Product>();
+                Products = await MainPageApi.SearchProductsAsync(searchText) ?? [];
                 IsError = false;
             }
             catch (System.Exception)
@@ -32,36 +40,32 @@ public class MainPageViewModel : BaseViewModel
             {
                 IsLoading = false;
             }
-        });
-
-        SearchProductsAsync = new Command(async (object value) =>
+        }
+        else
         {
-            var searchText = value as string;
-            if (!string.IsNullOrWhiteSpace(searchText))
-            {
-                IsLoading = true;
-                IsError = false;
-                Products.Clear();
-                try
-                {
-                    Products = await MainPageApi.SearchProductsAsync(searchText)?? new ObservableCollection<Product>();
-                    IsError = false;
-                }
-                catch (System.Exception)
-                {
-                    IsError = true;
-                    throw;
-                }
-                finally
-                {
-                    IsLoading = false;
-                }
-            }
-            else
-            {
-                LoadProductsAsync.Execute(null);
-            }
-        });
+            LoadProductsAsync.Execute(null);
+        }
+    }
+
+    private async void ExecuteLoadProductsAsync()
+    {
+        IsLoading = true;
+        IsError = false;
+        Products.Clear();
+        try
+        {
+            Products = await MainPageApi.GetProducts() ?? [];
+            IsError = false;
+        }
+        catch (System.Exception)
+        {
+            IsError = true;
+            throw;
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 
     public ObservableCollection<Product> Products
@@ -69,4 +73,5 @@ public class MainPageViewModel : BaseViewModel
         get => _products;
         set => SetProperty(ref _products, value);
     }
+    
 }

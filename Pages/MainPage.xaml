@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="test_maui_app.MainPage"
+    x:Class="test_maui_app.Pages.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:test_maui_app.Views"
     xmlns:viewModels="clr-namespace:test_maui_app.ViewModels"
     xmlns:models="clr-namespace:test_maui_app.Models"
     xmlns:converters="clr-namespace:test_maui_app.Converters"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="viewModels:MainPageViewModel"
     Title="Products">
 
@@ -17,7 +19,7 @@
                     Radius="0"
                     Opacity="0.8"/>
             <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
-            <DataTemplate x:Key="productTemplate"
+            <DataTemplate x:Key="ProductTemplate"
                           x:DataType="models:Product">
                 <Grid
                     ColumnDefinitions="*, 3*"
@@ -28,7 +30,8 @@
                                 <VisualState Name="Normal"/>
                                 <VisualState Name="PointerOver">
                                     <VisualState.Setters>
-                                        <Setter Property="Shadow" Value="{StaticResource GridShadow}"/>
+                                        <Setter Property="Shadow"
+                                                Value="{StaticResource GridShadow}"/>
                                     </VisualState.Setters>
                                 </VisualState>
                                 <VisualState Name="Selected">
@@ -43,7 +46,7 @@
 
                     <Image
                         Grid.RowSpan="2"
-                        Source="{Binding thumbnail}"
+                        Source="{Binding Thumbnail}"
                         Aspect="AspectFill"
                         HeightRequest="50"
                         WidthRequest="60"/>
@@ -51,30 +54,17 @@
                     <Label
                         Grid.Column="1"
                         Margin="0, 20"
-                        Text="{Binding title}"
+                        Text="{Binding Title}"
                         FontAttributes="Bold"/>
 
                     <Label
                         Grid.Column="1"
                         Grid.Row="1"
-                        Text="{Binding description}"/>
+                        Text="{Binding Description}"/>
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Cart">
-            <ToolbarItem.IconImageSource>
-                <FontImageSource
-                    FontFamily="MaterialIconsOutlinedLatinRegular"
-                    Glyph="&#xe8cc;"
-                    Color="White"
-                    Size="20"/>
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
-
-    </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="60, *"
           ColumnDefinitions="*">
@@ -84,13 +74,13 @@
               ColumnDefinitions="*, 100">
 
             <Entry
-                x:Name="txtSearch"
+                x:Name="TxtSearch"
                 HorizontalOptions="End"
                 WidthRequest="210"
                 Placeholder="Search Products"
                 HeightRequest="50"/>
 
-            <Button x:Name="searchBtn"
+            <Button x:Name="SearchBtn"
                     Margin="10"
                     CornerRadius="30"
                     Grid.Column="1"
@@ -125,11 +115,12 @@
                     SelectionMode="Single"
                     VerticalOptions="FillAndExpand"
                     ItemsSource="{Binding Products}"
-                    ItemTemplate="{StaticResource productTemplate}"
+                    ItemTemplate="{StaticResource ProductTemplate}"
                     SelectionChanged="CollectionView_SelectionChanged"/>
 
             </VerticalStackLayout>
         </ScrollView>
+        
     </Grid>
 
 </ContentPage>

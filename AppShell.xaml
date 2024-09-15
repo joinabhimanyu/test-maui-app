@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Shell
     x:Class="test_maui_app.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:test_maui_app"
+    xmlns:views="using:test_maui_app.Views"
+    xmlns:pages="clr-namespace:test_maui_app.Pages"
     Shell.FlyoutBehavior="Flyout"
     Title="test_maui_app">
+
+    <Shell.ToolbarItems>
+        <views:CartWidget x:Name="CartItem" x:FieldModifier="public" />
+    </Shell.ToolbarItems>
 
     <Shell.FlyoutHeader>
         <VerticalStackLayout
@@ -16,7 +23,7 @@
                 Source="x_logo.jpg"
                 Aspect="AspectFill"
                 HeightRequest="160"
-                WidthRequest="190"/>
+                WidthRequest="190" />
 
         </VerticalStackLayout>
     </Shell.FlyoutHeader>
@@ -26,117 +33,117 @@
             HorizontalOptions="Center">
             <Button
                 Margin="0,0,0,20"
-                x:Name="btnLogin"
+                x:Name="BtnLogin"
                 HeightRequest="40"
                 WidthRequest="100"
                 CornerRadius="30"
                 HorizontalOptions="Center"
-                Text="Login"/>
+                Text="Login" />
         </VerticalStackLayout>
     </Shell.FlyoutFooter>
 
 
     <ShellContent
         Title="Products"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Home">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xe179;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="Categories"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Categories">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xe574;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="Favourites"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Favourites">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xe98b;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="Orders"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Orders">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xebcc;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="Account"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Account">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xf02e;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="Settings"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Settings">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xe8b8;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="Report"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="Report">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xe868;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
     <ShellContent
         Title="About"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="About">
         <ShellContent.FlyoutIcon>
             <FontImageSource
                 FontFamily="MaterialIconsOutlinedLatinRegular"
                 Glyph="&#xe887;"
                 Color="Black"
-                Size="20"/>
+                Size="20" />
         </ShellContent.FlyoutIcon>
     </ShellContent>
 
