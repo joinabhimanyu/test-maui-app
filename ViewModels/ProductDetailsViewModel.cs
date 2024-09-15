@@ -10,6 +10,7 @@ public class ProductDetailsViewModel : BaseViewModel
     private int _productId;
     private Product? _product;
     private Command LoadProductDetailsAsync { get; }
+    public Command AddProductToCartAsync { get; }
 
     public int ProductId
     {
@@ -27,17 +28,24 @@ public class ProductDetailsViewModel : BaseViewModel
         private set => SetProperty(ref _product, value);
     }
 
-    public bool IsEnabled
-    {
-        get
-        {
-            return Shell.Current is AppShell && ((Shell.Current as AppShell)!).CartItem.ViewModel.Items.All(x => x != _productId);
-        }
-    }
-
     public ProductDetailsViewModel()
     {
         LoadProductDetailsAsync = new Command(ExecuteLoadProductDetailsAsync);
+        AddProductToCartAsync = new Command(ExecuteAddProductToCart, CanExecute);
+    }
+
+    private bool CanExecute()
+    {
+        return Shell.Current is AppShell && ((Shell.Current as AppShell)!).CartItem.ViewModel.Items.All(x => x != _productId);
+    }
+
+    private void ExecuteAddProductToCart()
+    {
+        if (Shell.Current is AppShell appShell)
+        {
+            appShell.AddItemToCart(ProductId);
+            AddProductToCartAsync.ChangeCanExecute();
+        }
     }
 
     private async void ExecuteLoadProductDetailsAsync()

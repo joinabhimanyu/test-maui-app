@@ -66,19 +66,16 @@
                                  Grid.Row="2">
                 <HorizontalStackLayout HeightRequest="40"
                                        WidthRequest="200"
-                                       HorizontalOptions="Center">
+                                       HorizontalOptions="Center"
+                                       BindingContext="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                                       x:DataType="viewModels:ProductDetailsViewModel">
                     <Button
                         x:Name="BtnPurchase"
                         Text="Add to Cart"
                         HeightRequest="40"
                         WidthRequest="200"
                         CornerRadius="30"
-                        BindingContext="{Binding Source={RelativeSource Self}, Path=BindingContext}"
-                        x:DataType="viewModels:ProductDetailsViewModel"
-                        Clicked="btnPurchase_Clicked">
-                        <Button.IsEnabled>
-                            <Binding Path="IsEnabled" Mode="OneWay" />
-                        </Button.IsEnabled>
+                        Command="{Binding AddProductToCartAsync}">
                     </Button>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
