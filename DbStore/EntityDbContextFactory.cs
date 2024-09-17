@@ -1,8 +1,7 @@
-using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace test_dotnet_app.DbStore;
+namespace test_webapi_app.DbStore;
 
 public class EntityDbContextFactory : IDesignTimeDbContextFactory<EntityDbContext>
 {

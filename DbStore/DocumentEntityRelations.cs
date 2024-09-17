@@ -1,8 +1,7 @@
-using System;
 using Microsoft.EntityFrameworkCore;
-using test_dotnet_app.Entities;
+using test_webapi_app.Entities;
 
-namespace test_dotnet_app.DbStore;
+namespace test_webapi_app.DbStore;
 
 public static class DocumentEntityRelations
 {

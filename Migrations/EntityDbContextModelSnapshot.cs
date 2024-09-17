@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using test_dotnet_app.DbStore;
+using test_webapi_app.DbStore;
 
 #nullable disable
 
-namespace test_dotnet_app.Migrations
+namespace test_webapi_app.Migrations
 {
     [DbContext(typeof(EntityDbContext))]
     partial class EntityDbContextModelSnapshot : ModelSnapshot

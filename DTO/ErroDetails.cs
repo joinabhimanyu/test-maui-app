@@ -1,7 +1,6 @@
-using System;
 using System.Text.Json;
 
-namespace test_dotnet_app.DTO;
+namespace test_webapi_app.DTO;
 
 public class ErroDetails
 {

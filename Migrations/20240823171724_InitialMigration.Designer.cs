@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using test_dotnet_app.DbStore;
+using test_webapi_app.DbStore;
 
 #nullable disable
 
-namespace test_dotnet_app.Migrations
+namespace test_webapi_app.Migrations
 {
     [DbContext(typeof(EntityDbContext))]
     [Migration("20240823171724_InitialMigration")]

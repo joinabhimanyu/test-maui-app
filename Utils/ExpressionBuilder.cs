@@ -1,9 +1,8 @@
-using System;
 using System.Linq.Expressions;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Entities;
+using test_webapi_app.DTO;
+using test_webapi_app.Entities;
 
-namespace test_dotnet_app.Utils;
+namespace test_webapi_app.Utils;
 
 public static class ExpressionBuilder
 {

@@ -1,10 +1,8 @@
-using System;
-using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Utils;
+using test_webapi_app.DTO;
+using test_webapi_app.Utils;
 
-namespace test_dotnet_app.Middlewares;
+namespace test_webapi_app.Middlewares;
 
 public static class ConfigureGlobalExceptionHandlerWrapper
 {

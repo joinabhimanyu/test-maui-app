@@ -1,6 +1,4 @@
-using System;
-
-namespace test_dotnet_app.DTO;
+namespace test_webapi_app.DTO;
 
 public class SearchParam
 {

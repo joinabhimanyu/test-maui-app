@@ -1,14 +1,12 @@
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Entities;
+using test_webapi_app.DTO.AuthenticationFeature;
+using test_webapi_app.Entities;
 
-namespace test_dotnet_app.Services.Authentication;
+namespace test_webapi_app.Services.Authentication;
 
 public class AuthenticationService : IAuthenticationService
 {

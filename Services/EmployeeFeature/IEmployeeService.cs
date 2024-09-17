@@ -1,8 +1,7 @@
-using System;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Entities;
+using test_webapi_app.DTO;
+using test_webapi_app.DTO.EmployeeFeature;
 
-namespace test_dotnet_app.Services.EmployeeFeature;
+namespace test_webapi_app.Services.EmployeeFeature;
 
 public interface IEmployeeService
 {

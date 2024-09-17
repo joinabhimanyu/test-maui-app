@@ -1,8 +1,7 @@
-using System;
 using Microsoft.AspNetCore.Identity;
-using test_dotnet_app.DTO;
+using test_webapi_app.DTO.AuthenticationFeature;
 
-namespace test_dotnet_app.Services.Authentication;
+namespace test_webapi_app.Services.Authentication;
 
 public interface IAuthenticationService
 {

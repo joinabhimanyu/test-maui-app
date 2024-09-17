@@ -1,8 +1,7 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace test_dotnet_app.Entities;
+namespace test_webapi_app.Entities;
 
 public class Department : BaseEntity
 {

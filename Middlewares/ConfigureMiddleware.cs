@@ -1,6 +1,4 @@
-using System;
-
-namespace test_dotnet_app.Middlewares;
+namespace test_webapi_app.Middlewares;
 
 public static class ConfigureMiddlewareWrapper
 {

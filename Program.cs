@@ -1,8 +1,8 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using test_dotnet_app.DbStore;
-using test_dotnet_app.Extensions;
-using test_dotnet_app.Middlewares;
+using test_webapi_app.Extensions;
+using test_webapi_app.Middlewares;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

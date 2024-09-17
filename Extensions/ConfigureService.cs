@@ -1,9 +1,8 @@
-using System;
-using test_dotnet_app.Services.Authentication;
-using test_dotnet_app.Services.DepartmentFeature;
-using test_dotnet_app.Services.EmployeeFeature;
+using test_webapi_app.Services.Authentication;
+using test_webapi_app.Services.DepartmentFeature;
+using test_webapi_app.Services.EmployeeFeature;
 
-namespace test_dotnet_app.Extensions;
+namespace test_webapi_app.Extensions;
 
 public static class ConfigureServiceWrapper
 {

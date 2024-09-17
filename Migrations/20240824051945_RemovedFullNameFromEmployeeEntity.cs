@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace test_dotnet_app.Migrations
+namespace test_webapi_app_app.Migrations
 {
     /// <inheritdoc />
     public partial class RemovedFullNameFromEmployeeEntity : Migration

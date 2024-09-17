@@ -1,6 +1,4 @@
-using System;
-
-namespace test_dotnet_app.Entities;
+namespace test_webapi_app.Entities;
 
 public class BaseEntity
 {

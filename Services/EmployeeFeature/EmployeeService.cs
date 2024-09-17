@@ -1,10 +1,8 @@
-using System;
-using AutoMapper;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Entities;
-using test_dotnet_app.Repositories.EmployeeFeature;
+using test_webapi_app.DTO;
+using test_webapi_app.DTO.EmployeeFeature;
+using test_webapi_app.Repositories.EmployeeFeature;
 
-namespace test_dotnet_app.Services.EmployeeFeature;
+namespace test_webapi_app.Services.EmployeeFeature;
 
 public class EmployeeService : IEmployeeService
 {

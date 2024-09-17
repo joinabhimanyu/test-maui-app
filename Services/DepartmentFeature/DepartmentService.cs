@@ -1,10 +1,8 @@
-using System;
-using AutoMapper;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Entities;
-using test_dotnet_app.Repositories.DepartmentFeature;
+using test_webapi_app.DTO;
+using test_webapi_app.DTO.DepartmentFeature;
+using test_webapi_app.Repositories.DepartmentFeature;
 
-namespace test_dotnet_app.Services.DepartmentFeature;
+namespace test_webapi_app.Services.DepartmentFeature;
 
 public class DepartmentService: IDepartmentService
 {

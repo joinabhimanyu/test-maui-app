@@ -1,4 +1,4 @@
-namespace test_dotnet_app.Utils;
+namespace test_webapi_app.Utils;
 
 public enum CustomErroCodes
 {

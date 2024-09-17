@@ -1,9 +1,8 @@
-using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace test_dotnet_app.DbStore;
+namespace test_webapi_app.DbStore;
 
 public class IdentityRoleEntityConfiguration : IEntityTypeConfiguration<IdentityRole>
 {

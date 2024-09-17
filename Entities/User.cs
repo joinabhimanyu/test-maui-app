@@ -1,7 +1,6 @@
-using System;
 using Microsoft.AspNetCore.Identity;
 
-namespace test_dotnet_app.Entities;
+namespace test_webapi_app.Entities;
 
 public class User: IdentityUser
 {

@@ -1,8 +1,7 @@
-using System;
-using test_dotnet_app.Repositories.DepartmentFeature;
-using test_dotnet_app.Repositories.EmployeeFeature;
+using test_webapi_app.Repositories.DepartmentFeature;
+using test_webapi_app.Repositories.EmployeeFeature;
 
-namespace test_dotnet_app.Extensions;
+namespace test_webapi_app.Extensions;
 
 public static class ConfigureRepositoryWrapper
 {

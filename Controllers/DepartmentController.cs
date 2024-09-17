@@ -1,12 +1,11 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Extensions;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Entities;
-using test_dotnet_app.Services.DepartmentFeature;
-using test_dotnet_app.Utils;
+using test_webapi_app.DTO;
+using test_webapi_app.DTO.DepartmentFeature;
+using test_webapi_app.Services.DepartmentFeature;
+using test_webapi_app.Utils;
 
-namespace test_dotnet_app.Controllers
+namespace test_webapi_app.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

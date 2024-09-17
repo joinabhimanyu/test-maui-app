@@ -1,7 +1,6 @@
-using System;
 using System.Globalization;
 
-namespace test_dotnet_app.Middlewares;
+namespace test_webapi_app.Middlewares;
 
 public class RequestCultureMiddleware : IMiddleware
 {

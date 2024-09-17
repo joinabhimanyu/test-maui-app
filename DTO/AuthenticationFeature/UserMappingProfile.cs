@@ -1,8 +1,6 @@
-using System;
-using AutoMapper;
-using test_dotnet_app.Entities;
+using test_webapi_app.Entities;
 
-namespace test_dotnet_app.DTO;
+namespace test_webapi_app.DTO.AuthenticationFeature;
 
 // public class UserMappingProfile : Profile
 // {

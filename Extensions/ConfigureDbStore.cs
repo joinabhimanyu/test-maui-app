@@ -1,8 +1,7 @@
-using System;
 using Microsoft.EntityFrameworkCore;
-using test_dotnet_app.DbStore;
+using test_webapi_app.DbStore;
 
-namespace test_dotnet_app.Extensions;
+namespace test_webapi_app.Extensions;
 
 public static class ConfigureDbStoreWrapper
 {

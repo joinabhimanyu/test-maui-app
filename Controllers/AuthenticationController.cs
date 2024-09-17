@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using test_dotnet_app.DTO;
-using test_dotnet_app.Services.Authentication;
+using test_webapi_app.DTO.AuthenticationFeature;
+using test_webapi_app.Services.Authentication;
 
-namespace test_dotnet_app.Controllers
+namespace test_webapi_app.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

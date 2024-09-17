@@ -1,7 +1,7 @@
-using System;
 using System.ComponentModel.DataAnnotations;
+using test_webapi_app.DTO.EmployeeFeature;
 
-namespace test_dotnet_app.DTO;
+namespace test_webapi_app.DTO.DepartmentFeature;
 
 public class DepartmentDto : BaseDto
 {

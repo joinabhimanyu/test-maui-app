@@ -1,9 +1,8 @@
-using System;
 using Microsoft.AspNetCore.Identity;
-using test_dotnet_app.DbStore;
-using test_dotnet_app.Entities;
+using test_webapi_app.DbStore;
+using test_webapi_app.Entities;
 
-namespace test_dotnet_app.Middlewares;
+namespace test_webapi_app.Middlewares;
 
 public static class ConfigureIdentityWrapper
 {
